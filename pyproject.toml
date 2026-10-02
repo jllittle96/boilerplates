@@ -30,6 +30,9 @@ dependencies = [
 test = [
     "pytest>=8.0.0",
 ]
+tui = [
+    "textual>=1.0.0",
+]
 
 [project.scripts]
 boilerplates = "cli.__main__:run"

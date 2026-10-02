@@ -124,6 +124,17 @@ def main(
         sys.exit(0)
 
 
+@app.command("tui")
+def tui() -> None:
+    """Open the interactive terminal UI (requires the 'tui' extra)."""
+    try:
+        from cli.tui import run
+    except ImportError:
+        console.print("The TUI needs Textual. Install it with: [bold]pipx install 'boilerplates[tui]'[/bold]")
+        sys.exit(1)
+    run()
+
+
 def _import_modules(modules_path: Path, logger: logging.Logger) -> list[str]:
     """Import all modules and return list of failures."""
     failed_imports = []
